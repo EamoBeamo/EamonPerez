@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ap Seminar</title>
+    <link rel = "stylesheet" href = "apSeminar.css">
+</head>
+<div class="nav-wrapper">
+
+    <!-- Main toggle button -->
+    <button class="nav-toggle" id="navToggle">☰</button>
+
+    <!-- Hidden nav links -->
+    <div class="nav-menu" id="navMenu">
+        <a href="APCSA.html">APCSA</a>
+        <a href="index.html">Home</a>
+        <a href="pt1.html">Performance Task 1</a>
+        <a href="pt2.html">Performance Task 2</a>
+    </div>
+
+</div>
+<script>
+    const navToggle = document.getElementById("navToggle");
+    const navWrapper = document.querySelector(".nav-wrapper");
+
+    navToggle.addEventListener("click", () => {
+        navWrapper.classList.toggle("open");
+    });
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+
+        document.querySelectorAll("a, button").forEach(element => {
+
+            element.addEventListener("click", function(e) {
+
+                let href = null;
+
+                if (this.tagName === "A") {
+                    href = this.getAttribute("href");
+                }
+
+                if (this.tagName === "BUTTON") {
+                    href = this.getAttribute("data-href");
+                }
+
+                if (href) {
+                    e.preventDefault();
+
+                    document.body.classList.add("fade-out");
+
+                    setTimeout(() => {
+                        window.location.href = href;
+                    }, 500);
+                }
+            });
+
+        });
+
+    });
+</script>
+<body>
+<h1 class = "semTitle"> AP SEMINAR </h1>
+<p>
+    This year, I have worked hard to complete my AP Seminar papers and presentations, and here, I am glad to show
+    my work with everyone. In my first official presentation for the TMP, I was nervous, and I felt that I let
+    my classmates down. My team thankfully made me feel better, and I ended up presenting something that I
+    am personally proud of. Although it shows that I am still nervous, and might not completely be sure of what I
+    am doing, I was able to present the way I did thanks to my teammates, Liam McGee and Charlie Bonnie. My second
+    official presentation for the IMP was much better though, I feel. We were given the task to come up with our
+    own conclusions based on the research done by others in a variety of sources, while also using certain sources
+    from a stimulus packet handed to us.
+</p>
+
+<div class = "sContainer">
+    <div class = "split left">
+        <div class = "centered">
+            <h1>
+                Performance Task 1
+            </h1>
+            <button class = "navButtons" data-href="pt1.html">Video and Writing></button>
+        </div>
+    </div>
+    <div class = "split right">
+        <div class = "centered">
+            <h1>
+                Performance Task 2
+            </h1>
+            <button class = "navButtons" data-href="pt2.html">Video and Writing</button>
+        </div>
+    </div>
+</div>
+
+
+
+</body>
+</html>

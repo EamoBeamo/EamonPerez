@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Performance Task 1</title>
+    <link rel="stylesheet" href="apSeminar.css">
+
+</head>
+<div class="nav-wrapper">
+
+    <!-- Main toggle button -->
+    <button class="nav-toggle" id="navToggle">☰</button>
+
+    <!-- Hidden nav links -->
+    <div class="nav-menu" id="navMenu">
+        <a href="APCSA.html">APCSA</a>
+        <a href="index.html">Home</a>
+        <a href="apSeminar.html">Seminar</a>
+        <a href="pt2.html">Performance Task 2</a>
+    </div>
+
+</div>
+<script>
+    const navToggle = document.getElementById("navToggle");
+    const navWrapper = document.querySelector(".nav-wrapper");
+
+    navToggle.addEventListener("click", () => {
+        navWrapper.classList.toggle("open");
+    });
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+
+        document.querySelectorAll("a, button").forEach(element => {
+
+            element.addEventListener("click", function(e) {
+
+                let href = null;
+
+                if (this.tagName === "A") {
+                    href = this.getAttribute("href");
+                }
+
+                if (this.tagName === "BUTTON") {
+                    href = this.getAttribute("data-href");
+                }
+
+                if (href) {
+                    e.preventDefault();
+
+                    document.body.classList.add("fade-out");
+
+                    setTimeout(() => {
+                        window.location.href = href;
+                    }, 500);
+                }
+            });
+
+        });
+
+    });
+</script>
+
+<body>
+<h1>IRR</h1>
+<p>
+    For my IRR, or Individual Research Report, I was tasked with writing a paper based on the information I
+    gathered about the topic that my team wrote. I chose to take an environmental lens, which at first I thought
+    would be easy, but it turned out to be more difficult than I thought. I eventually found myself
+    down a rabbit hole of the effects of traditional septic systems on surrounding bodies of water. While the
+    topic is admittedly off-putting, it truly does harm the environment in a great way, as the nitrogen rich waste
+    feeds harmful algae blooms. I was also incredibly impressed by my two fellow researchers, who i could
+    tell strongly understood their topics.
+</p>
+
+<div class ="container tmp">
+    <h1>TMP</h1>
+    <div class ="slides">
+        <button class = "navButton" onclick = "window.location.href='tmp.html'"> Click here to see slides </button>
+    </div>
+    <iframe width="560" height="315" src="https://youtu.be/yx3t7iSoM-c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+
+</div>
+<button class = "redir" onclick = "window.location.href='https://youtu.be/yx3t7iSoM-c'">
+    If video does not load due to administration, click me!
+</button>
+<p>Or copy and paste this link: https://youtu.be/yx3t7iSoM-c </p>
+
+
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AP CSA</title>
+    <link rel="stylesheet" href="mainStyle.css">
+</head>
+<div class="nav-wrapper">
+
+    <!-- Main toggle button -->
+    <button class="nav-toggle" id="navToggle">☰</button>
+
+    <!-- Hidden nav links -->
+    <div class="nav-menu" id="navMenu">
+        <a href="index.html">Home</a>
+        <a href="pt1.html">Performance Task 1</a>
+        <a href="pt2.html">Performance Task 2</a>
+        <a href="apSeminar.html">Seminar</a>
+    </div>
+
+</div>
+<script>
+    const navToggle = document.getElementById("navToggle");
+    const navWrapper = document.querySelector(".nav-wrapper");
+
+    navToggle.addEventListener("click", () => {
+        navWrapper.classList.toggle("open");
+    });
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+
+        document.querySelectorAll("a, button").forEach(element => {
+
+            element.addEventListener("click", function(e) {
+
+                let href = null;
+
+                if (this.tagName === "A") {
+                    href = this.getAttribute("href");
+                }
+
+                if (this.tagName === "BUTTON") {
+                    href = this.getAttribute("data-href");
+                }
+
+                if (href) {
+                    e.preventDefault();
+
+                    document.body.classList.add("fade-out");
+
+                    setTimeout(() => {
+                        window.location.href = href;
+                    }, 500);
+                }
+            });
+
+        });
+
+    });
+</script>
+<body>
+<h1 class = "Title">APCSA</h1>
+<div class = "titleSeparator"></div>
+<div class = "projects">
+    <p class = "pp">
+        The projects seen here are descending in order from oldest to newest. This is to show
+        you the rate at which I progressed over the years, and to show how I do what I do.
+    </p>
+    <section class="projects-container">
+        <div class="project-card">
+            <h2> Floors </h2>
+            <p> My first ever roblox game, which is in a playable state.</p>
+
+            <div class="project-details">
+                <button class="project-details-button">X</button>
+
+                <h1>Floors</h1>
+
+                <p> Floors is currently an unfinished, but working project of mine.
+                    This was my first step into game development, and there is even a cohesive story
+                    behind the world that I built within the engine. I do plan on finishing the game,
+                    actually adding rewarding gameplay and story elements, but it has taken a backseat
+                    to my more personal projects. Over the summer of 2026, I plan to work on it the most,
+                    as I have genuine "love" for this project.</p>
+            </div>
+        </div>
+        <div class="project-card">
+            <h2>Untitled</h2>
+            <p>
+                In the works 2.5d RPG
+            </p>
+
+            <div class="project-details">
+                <button class="project-details-button">X</button>
+
+                <h1>Untitled Game</h1>
+
+                <p> This project is my first ever true game. I wish to see it as my magnum opus in a sense.
+                    While I can't show much, as I don't have much to show, I can show you the visuals and basic
+                    systems I've put in place.</p>
+            </div>
+        </div>
+    </section>
+    <div class = "overlay"></div>
+</div>
+
+<script>
+    const cards = document.querySelectorAll(".project-card");
+    const overlay = document.querySelector(".overlay");
+
+    cards.forEach(card => {
+
+        card.addEventListener("click", () => {
+
+            if(card.classList.contains("expanded"))
+                return;
+
+            card.classList.add("expanded");
+            overlay.classList.add("active");
+        });
+
+        card.querySelector(".project-details-button").addEventListener("click", e => {
+
+            e.stopPropagation();
+
+            card.classList.remove("expanded");
+            overlay.classList.remove("active");
+        });
+    });
+</script>
+</body>
+</html>

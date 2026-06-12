@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Performance Task 1</title>
+    <link rel="stylesheet" href="apSeminar.css">
+</head>
+<div class="nav-wrapper">
+
+    <!-- Main toggle button -->
+    <button class="nav-toggle" id="navToggle">☰</button>
+
+    <!-- Hidden nav links -->
+    <div class="nav-menu" id="navMenu">
+        <a href="APCSA.html">APCSA</a>
+        <a href="index.html">Home</a>
+        <a href="apSeminar.html">Seminar</a>
+        <a href="pt1.html">Performance Task 1</a>
+    </div>
+
+</div>
+<script>
+    const navToggle = document.getElementById("navToggle");
+    const navWrapper = document.querySelector(".nav-wrapper");
+
+    navToggle.addEventListener("click", () => {
+        navWrapper.classList.toggle("open");
+    });
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+
+        document.querySelectorAll("a, button").forEach(element => {
+
+            element.addEventListener("click", function(e) {
+
+                let href = null;
+
+                if (this.tagName === "A") {
+                    href = this.getAttribute("href");
+                }
+
+                if (this.tagName === "BUTTON") {
+                    href = this.getAttribute("data-href");
+                }
+
+                if (href) {
+                    e.preventDefault();
+
+                    document.body.classList.add("fade-out");
+
+                    setTimeout(() => {
+                        window.location.href = href;
+                    }, 500);
+                }
+            });
+
+        });
+
+    });
+</script>
+<body>
+<h1>IWA</h1>
+<p>
+    For my IWA/Individual Written Assignment, I found it much more challenging to fill my writing without making it
+    drag or repeat itself. I wanted to keep the information concise, as the topic is very sensitive, and bringing
+    personal emotions into it may change the credibility of it. I wrote about the effects of AI companions on human
+    connection, as many people have begun to turn to them to help combat loneliness or boredom. As someone who
+    wants to see AI develop in a good way, to be used as a tool rather than a crutch, I personally feel that the
+    development of AI companions is inherently harmful, but I had to keep an open mind. While my emotions had shown to
+    be "correct" in a sense, as AI companions are programmed to manipulate their users, I was also shown that AI
+    companions can be helpful as a non-personal friend that suggests ideas and ways to cope with certain mental
+    disorders.
+</p>
+
+<div class ="container tmp">
+    <h1>TMP</h1>
+    <div class ="slides">
+        <button class = "navButton" onclick = "window.location.href='imp.html'"> Click here to see slides </button>
+    </div>
+    <iframe width="560" height="315" src="https://youtu.be/9f8EWX34UPc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+
+</div>
+<button class = "redir" onclick = "window.location.href='https://youtu.be/9f8EWX34UPc'">
+    If video does not load due to administration, click me!
+</button>
+<p>Or copy and paste this link: https://youtu.be/9f8EWX34UPc </p>
+
+
+</body>
+</html>

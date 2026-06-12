@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="mainStyle.css"/>
+</head>
+<div class="nav-wrapper">
+
+    <!-- Main toggle button -->
+    <button class="nav-toggle" id="navToggle">☰</button>
+
+    <!-- Hidden nav links -->
+    <div class="nav-menu" id="navMenu">
+        <a href="APCSA.html">APCSA</a>
+        <a href="apSeminar.html">Seminar</a>
+        <a href="pt1.html">Performance Task 1</a>
+        <a href="pt2.html">Performance Task 2</a>
+    </div>
+
+</div>
+<script>
+    const navToggle = document.getElementById("navToggle");
+    const navWrapper = document.querySelector(".nav-wrapper");
+
+    navToggle.addEventListener("click", () => {
+        navWrapper.classList.toggle("open");
+    });
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+
+        document.querySelectorAll("a, button").forEach(element => {
+
+            element.addEventListener("click", function(e) {
+
+                let href = null;
+
+                if (this.tagName === "A") {
+                    href = this.getAttribute("href");
+                }
+
+                if (this.tagName === "BUTTON") {
+                    href = this.getAttribute("data-href");
+                }
+
+                if (href) {
+                    e.preventDefault();
+
+                    document.body.classList.add("fade-out");
+
+                    setTimeout(() => {
+                        window.location.href = href;
+                    }, 500);
+                }
+            });
+
+        });
+
+    });
+</script>
+<body>
+<h1 class="Title">
+    Eamon Perez: Programmer, Researcher
+</h1>
+<div class = "titleSeparator"></div>
+<h2 class = "sub1">
+    About Myself
+</h2>
+<div class = "sub1Sep"></div>
+<div>
+    <img class = "EamonImg" src="eamonCode.png" alt=""/>
+
+
+    <p class = "introText">
+        Greetings, My name is Eamon Perez, and I am studying Computer Science and AP
+        Capstone at Old Rochester Regional High School. This page is my portfolio, one that I've
+        decided to make from scratch rather than using a visual website builder. I did this to further
+        my strengths in web development, but using an app like Wix would have been better for me if I
+        had less time. In my AP Capstone research, I prefer to research the effects of humans on the environment,
+        and the effects of what humans have made on themselves. My proudest work, being me IMP for performance task2,
+        had me researching the effects of AI companions on their users, and how they interact with the world.
+        Aside from doing my programming school work for APCSA, I am a hobbiest game developer in my free time.
+        The picture on the left is a picture of some of one of my earliest applications, made using code.org.
+        This website was originally made using IntelliJ idea, but troubles arose when attempting to deploy, forcing
+        me to switch the platform to Code.org's web lab, which allows me to bring the site to the web.</p>
+</div>
+<div class = "navButtons">
+    <button class="navBtn" onclick="window.location.href='apSeminar.html'">Ap Seminar</button>
+    <button class ="navBtn" onclick="window.location.href='APCSA.html'">APCSA</button>
+</div>
+</body>
+</html>

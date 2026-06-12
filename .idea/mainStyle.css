@@ -1,0 +1,264 @@
+.Title {
+    font-family: Impact, Charcoal, sans-serif;
+    font-size: 22px;
+    letter-spacing: 2px;
+    word-spacing: 2px;
+    color: #e0e8ff;
+    font-weight: 400;
+    font-style: normal;
+    font-variant: normal;
+    text-transform: capitalize;
+    text-shadow: 0 0 10px #7eb3ff, 0 0 20px #3a6fd8;
+    text-align: center;
+}
+body{
+    background-color: black;
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in forwards;
+}
+.navBtn{
+    font-family: monospace;
+    letter-spacing: 0.12em;
+    color: #a5c8ff;
+    background: #050d1a;
+    border: 1px solid #1e3a5f;
+    border-radius: 4px;
+    padding: 12px 28px;
+    overflow: hidden;
+    position: relative;
+}
+
+body.fade-out{
+    animation: fadeOut 0.5s ease-in forwards;
+}
+
+@keyframes fadeIn {
+    from{
+        opacity:0;
+    }
+    to{
+        opacity:1;
+    }
+
+}
+
+@keyframes fadeOut {
+    from{
+        opacity:1;
+    }
+    to{
+        opacity:0;
+    }
+
+}
+
+.nav-wrapper {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 999;
+}
+
+/* main button */
+.nav-toggle {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border: none;
+    background: #3a6fd8;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(0,0,0,0.4);
+    transition: transform 0.3s ease;
+}
+
+.nav-toggle:hover {
+    transform: scale(1.1);
+}
+
+/* menu container */
+.nav-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 10px;
+
+    /* hidden state */
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: none;
+
+    transition: all 0.3s ease;
+}
+
+/* visible state */
+.nav-wrapper.open .nav-menu {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+/* links */
+.nav-menu a {
+    background: #0d1b3d;
+    color: white;
+    padding: 10px 14px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    width: 180px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    transition: 0.2s;
+}
+
+.nav-menu a:hover {
+    background: #1d3f7a;
+    transform: translateX(5px);
+}
+
+.titleSeparator {
+    background: linear-gradient(to right, transparent, #3a6fd8, #7eb3ff, #3a6fd8, transparent);
+    width: 100%;
+    height: 3px;
+    margin: 20px 0;
+    border: none;
+}
+.sub1{
+    font-family: Impact, Charcoal, sans-serif;
+    font-size: 20px;
+    letter-spacing: 2px;
+    word-spacing: 2px;
+    color: #e0e8ff;
+    font-weight: 400;
+    font-style: normal;
+    font-variant: normal;
+    text-transform: capitalize;
+    text-shadow: 0 0 10px #7eb3ff, 0 0 20px #3a6fd8;
+}
+.introText {
+    color: #c5d5f0;
+    font-family: Georgia, serif;
+    line-height: 1.8;
+    text-shadow: 0 0 8px rgba(100, 160, 255, 0.3);
+}
+
+.EamonImg {
+    float: left;
+    width: 30%;
+    margin-right: 50px;
+
+    /* Fix: outline sits outside the box model entirely, so padding won't push it */
+    outline: none;
+
+    /* Use box-shadow instead — it hugs the image content, not the padding box */
+    box-shadow: 0 0 0 3px #3a6fd8, 0 0 15px #3a6fd8, 0 0 30px rgba(58, 111, 216, 0.4);
+}
+/*
+PROJECTS PAGE
+*/
+
+.pp{
+    color: white;
+}
+.projects-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
+    gap:20px;
+
+    height: 80vh;
+    overflow-y:auto;
+
+    padding: 20px;
+}
+
+.project-card{
+    background:#222;
+    color:white;
+    padding:20px;
+    border-radius:15px;
+    height:140px;
+    overflow:hidden;
+    cursor:pointer;
+
+    border: medium double;
+
+
+
+
+
+    transition:
+            transform .5s ease,
+            box-shadow .5s ease;
+
+    position:relative;
+}
+
+.project-card:hover{
+    transform:translateY(-5px);
+}
+
+.overlay{
+    position:fixed;
+    inset:0;
+
+    background:rgba(0,0,0,.7);
+
+    opacity:0;
+    pointer-events:none;
+
+    transition:opacity .4s ease;
+
+    z-index:999;
+}
+
+.overlay.active{
+    opacity:1;
+    pointer-events:auto;
+}
+
+.project-card.expanded{
+    position:fixed;
+
+    top:50%;
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+    width:min(900px,90vw);
+    height:min(700px,85vh);
+
+    z-index:1000;
+
+    overflow-y:auto;
+
+    box-shadow:0 20px 60px rgba(0,0,0,.5);
+
+    transition:all .5s cubic-bezier(.2,.8,.2,1);
+}
+
+.project-details{
+    display:none;
+    margin-top:20px;
+}
+
+.project-card.expanded .project-details{
+    display:block;
+}
+
+.project-details-button{
+    position:absolute;
+    top:15px;
+    right:15px;
+
+    border:none;
+    background:#444;
+    color:white;
+
+    width:40px;
+    height:40px;
+
+    border-radius:50%;
+    cursor:pointer;
+}
+
