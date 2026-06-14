@@ -99,6 +99,20 @@ body.fade-out{
     transition: 0.2s;
 }
 
+.doc-container {
+    display: flex;
+    justify-content: center; /* centers horizontally */
+    width: 100%;
+    margin: 20px 0;
+}
+
+.doc-container iframe {
+    width: 90%;      /* make document much wider */
+    max-width: 1400px;
+    height: 900px;   /* increase height */
+    border: none;
+}
+
 .nav-menu a:hover {
     background: #1d3f7a;
     transform: translateX(5px);
